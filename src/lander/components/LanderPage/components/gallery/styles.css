@@ -1,0 +1,189 @@
+.gallerySection {
+  background: #fff;
+}
+
+.gallerySection > .container {
+  padding: 0 2rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.gallerySection h2 {
+  font-size: 2.75rem;
+}
+
+.gallery > .row {
+  position: relative;
+  margin-bottom: 0.67rem;
+}
+.gallery > .row:before {
+  content: "";
+  display: block;
+}
+.gallery > .row > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.thirdRow:before,
+.firstRow:before {
+  padding-bottom: calc(300% + 2rem);
+}
+.thirdRow .cell1,
+.thirdRow .cell2,
+.thirdRow .cell3,
+.firstRow .cell1,
+.firstRow .cell2,
+.firstRow .cell3 {
+  width: 100%;
+  height: 33%;
+}
+
+.secondRow {
+  display: none;
+}
+
+.cell1, .cell2, .cell3 {
+  overflow: hidden;
+}
+
+.cell1 > div,
+.cell2 > div,
+.cell3 > div {
+  transform: scale(1.7);
+}
+
+.photo {
+  background-size: cover;
+  width: 100%;
+  height: 80%;
+}
+.photo.assistant {
+  background-image: url(/assets/lander/assistant.jpg);
+}
+.photo.bday {
+  background-image: url(/assets/lander/bday.jpg);
+}
+.photo.notation {
+  background-image: url(/assets/lander/notation.jpg);
+}
+.photo.popsicles {
+  background-image: url(/assets/lander/popsiclesII.jpg);
+}
+.photo.ruylopez {
+  background-image: url(/assets/lander/ruylopez.jpg);
+}
+.photo.tournament {
+  background-image: url(/assets/lander/tournament.jpg);
+}
+.photo.participation {
+  background-image: url(/assets/lander/participation.jpg);
+}
+.photo.concentration {
+  background-image: url(/assets/lander/concentration.jpg);
+}
+
+.photoCaption {
+  display: none;
+  color: #333;
+  width: 100%;
+  height: 20%;
+}
+
+@media screen and (min-width: 539px) {
+  .gallery {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .gallery {
+    width: 100%;
+  }
+  .gallery > .row {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .gallery > .row > div {
+    display: block;
+  }
+  .gallerySection > .container {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+  }
+  .gallerySection h2 {
+    font-size: 2.3rem;
+  }
+  .thirdRow:before,
+  .firstRow:before {
+    padding-bottom: calc(66% + 1rem);
+  }
+
+  .firstRow .cell1 {
+    float: left;
+    width: 66%;
+    height: 100%;
+  }
+
+  .firstRow .cell2,
+  .firstRow .cell3 {
+    float: right;
+    width: 33%;
+    height: 50%;
+  }
+
+  .thirdRow .cell1 {
+    float: right;
+    width: 66%;
+    height: 100%;
+  }
+
+  .thirdRow .cell2,
+  .thirdRow .cell3 {
+    float: left;
+    width: 33%;
+    height: 50%;
+  }
+  .secondRow {
+    display: block;
+  }
+  .gallery > .secondRow > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .secondRow:before {
+    padding-bottom: calc(50% + 1rem);
+  }
+
+  .secondRow .cell1 {
+    width: 48%;
+    height: 100%;
+  }
+  .secondRow .cell2 {
+    width: 48%;
+    height: 100%;
+  }
+  .cell1 > div,
+  .cell2 > div,
+  .cell3 > div {
+    transform: scale(1);
+  }
+
+  .photoCaption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-size: 1.2rem;
+  }
+  .photoCaption.sm {
+    font-size: 1rem;
+  }
+}

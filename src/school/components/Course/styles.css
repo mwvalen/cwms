@@ -1,0 +1,33 @@
+:global .courseIndex {
+  width: 660px;
+  & .slick-next,
+  & .slick-prev {
+    height: 30px;
+  }
+  & .slick-next {
+    right: -50px;
+  }
+  & .slick-prev {
+    left: -50px;
+  }
+  & .course-header {
+    height: 56px;
+  }
+}
+
+.pagination {
+  & .active {
+    font-weight: 900;
+  }
+  & .separator {
+    margin: 0 10px;
+  }
+}
+
+.weekTitle {
+  width: 200px;
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}

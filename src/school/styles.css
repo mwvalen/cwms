@@ -1,0 +1,5 @@
+.paper {
+  min-height: 100vh;
+  background-image: url(/assets/school/paper.jpg);
+  background-size: cover;
+}

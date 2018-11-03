@@ -1,0 +1,6 @@
+.cardDetail {
+  & > .label {
+    min-width: 150px;
+    font-size: 16px;
+  }
+}

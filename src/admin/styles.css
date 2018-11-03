@@ -1,0 +1,8 @@
+.adminPage {
+  & > div {
+    padding: 40px;
+    & a {
+      display: block;
+    }
+  }
+}

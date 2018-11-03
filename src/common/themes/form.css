@@ -1,0 +1,21 @@
+.form {
+  width: 80%;
+  margin: auto;
+  padding-bottom: 40px;
+  & h1 {
+    font-weight: 100;
+    border-bottom: 2px solid #eeeeee;
+    font-size: 36px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  & h3 {
+    font-weight: 100;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  & > section {
+    padding-bottom: 20px;
+  }
+}

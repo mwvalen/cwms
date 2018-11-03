@@ -1,0 +1,8 @@
+.avatarCarousel {
+  width: 400px;
+  text-align: center;
+  & img {
+    width: 70%;
+    margin: auto;
+  }
+}

@@ -1,0 +1,77 @@
+.campSection {
+  background: #ddd;
+}
+
+.campSection > .container {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 2rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  align-items: center;
+}
+
+.campSection h2 {
+  font-size: 2.75rem;
+}
+.campSection p {
+  font-size: 2.3rem;
+  font-weight: 300;
+  align-self: flex-start;
+}
+
+.campSection > .container > .info {
+  margin-bottom: 2rem;
+}
+
+.circle {
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  background-image: url(/assets/lander/popsicle.jpg);
+  background-position: center;
+  background-size: cover;
+  transform: scale(0);
+}
+
+@media screen and (min-width: 539px) {
+  .circle {
+    width: 60vw;
+    height: 60vw;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .campSection > .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  .campSection h2 {
+    font-size: 2.3rem;
+    margin: 0;
+    transform: translateY(8rem);
+    opacity: 0;
+  }
+  .campSection p {
+    font-size: 1.8rem;
+    transform: translateY(8rem);
+    opacity: 0;
+  }
+  .campSection > .container > div:first-of-type {
+    min-width: 35vw;
+  }
+  .campSection > .container > .info {
+    text-align: left;
+  }
+  .circle {
+    width: 30vw;
+    height: 30vw;
+  }
+  .campSection button {
+    transform: translateY(8rem);
+    opacity: 0;
+  }
+}

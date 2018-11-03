@@ -1,0 +1,15 @@
+.iconNavbar {
+  height: 90px;
+}
+.navLink {
+  width: 40px;
+  cursor: pointer;
+  margin-right: 20px;
+  & img {
+    width: 100%;
+    filter: grayscale(100%);
+  }
+  & img.active {
+    filter: none;
+  }
+}

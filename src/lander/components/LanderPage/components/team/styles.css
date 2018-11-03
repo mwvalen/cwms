@@ -1,0 +1,103 @@
+.teacherSection {
+  background: #dddddd;
+}
+
+.teacherSection > .container {
+  padding: 0 2rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.teacherSection h2 {
+  font-size: 2.75rem;
+}
+
+.teacher {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teacher > div {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.teacher strong {
+  font-size: 2.3rem;
+}
+.teacher p {
+  font-size: 2.3rem;
+  font-weight: 300;
+}
+
+.square {
+  width: 70vw;
+  height: 70vw;
+  background: none;
+  margin-bottom: 2rem;
+  font-family: "Chess", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16rem;
+  position: relative;
+}
+
+.square > img {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 539px) {
+  .teacher .square {
+    width: 60vw;
+    height: 60vw;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .teacherSection > .container {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+  }
+  .teacherSection h2 {
+    font-size: 2.3rem;
+  }
+  .teacherContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .teacher {
+    flex-direction: column;
+    align-items: center;
+    width: 48%;
+    margin-bottom: 2rem;
+  }
+  .teacher > div {
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+  .teacher p {
+    font-size: 1.8rem;
+  }
+  .teacher strong {
+    font-size: 2rem;
+  }
+  .teacher .square {
+    width: 30vw;
+    height: 30vw;
+  }
+  .square > img {
+    opacity: 1;
+  }
+  .teacherSection .bio > * {
+    opacity: 1;
+    /*transform: translateY(8rem);*/
+  }
+}

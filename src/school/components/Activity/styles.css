@@ -1,0 +1,30 @@
+.activity {
+  width: 150px;
+  & .rollOver {
+    cursor: pointer;
+    width: 100%;
+  }
+  & .footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    background: rgb(87, 87, 86);
+    padding: 5px 0;
+    font-weight: 600;
+  }
+  & .hide {
+    display: none;
+  }
+  & img {
+    width: 100%;
+  }
+}
+
+.placeholder {
+  width: 150px;
+  height: 179px;
+  border: 1px solid #e6e6e6;
+}

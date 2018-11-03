@@ -1,0 +1,17 @@
+.location {
+  display: flex;
+  & > .info {
+    width: 40%;
+    text-align: center;
+    & h3 {
+      font-weight: bold;
+    }
+    & p {
+      font-size: 24px;
+      margin: initial;
+    }
+  }
+  & > .gMap {
+    width: 60%;
+  }
+}

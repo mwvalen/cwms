@@ -1,0 +1,6 @@
+.signupForm {
+  & > div {
+      width: 500px;
+      margin-top: 20px;
+  }
+}

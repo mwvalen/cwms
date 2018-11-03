@@ -1,0 +1,6 @@
+.registrationLink {
+  & a,
+  & h1 {
+    text-transform: capitalize;
+  }
+}

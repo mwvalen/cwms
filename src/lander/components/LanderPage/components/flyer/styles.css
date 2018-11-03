@@ -1,0 +1,88 @@
+
+.flyer {
+  background-color: #fff;
+  position: relative;
+}
+
+.imgLeft, .imgRight {
+  position: absolute;
+  display: none;
+  height: 70%;
+  top: 15%;
+  width: auto;
+}
+
+.imgLeft {
+  left: 0px;
+}
+
+.imgRight {
+  transform: rotateY(180deg);
+  right: 0px;
+}
+
+.flyer > .introContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 2rem;
+  width: 94%;
+  margin: auto;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.signalling > h2 {
+  font-size: 2.75rem;
+}
+
+.signalling > p {
+  max-width: 40rem;
+  margin: auto;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 2.3rem;
+}
+
+.introLogo {
+  display: none;
+  width: 45%;
+  margin-bottom: 3rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 769px) {
+  .introLogo {display: block}
+  .signalling > p {
+    font-size: 1.8rem;
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+  .signalling > h2 {
+    font-size: 2.3rem;
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+  .flyer > .introContainer {
+    padding: 8rem 0;
+    padding-top: 5rem;
+    align-items: center;
+    text-align: center;
+    width: 84%;
+  }
+  .introContainer button {
+    transform: translateY(8rem);
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .imgLeft, .imgRight {display: block}
+}
+
+@media screen and (min-width: 1101px) {
+  .imgLeft, .imgRight {
+    height: 80%;
+    top: 5%;
+  }
+}

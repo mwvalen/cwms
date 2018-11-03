@@ -1,0 +1,135 @@
+.boardContainer {
+  width: 800px;
+  height: 744px;
+  background: linear-gradient(to bottom right, #5DBCD2, #44A6A9);
+  border: 5px solid #053F43;
+  margin: auto;
+  position: relative;
+  padding: 30px;
+  top: -70px;
+  & .header {
+    height: 96px;
+    display: flex;
+    align-items: center;
+    & .banner {
+      position: relative;
+      right: 30px;
+      top: -15px;
+      width: 800px;
+      height: 60px;
+      display: flex;
+      pointer-events: none;
+      background-size: auto 100%;
+      background-position: left;
+      background-repeat: no-repeat;
+      color: white;
+      font-weight: 600;
+      font-size: 28px;
+      letter-spacing: 2px;
+      padding-left: 200px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-image: url(/assets/flag-yellow.png);
+    }
+  }
+  & .body {
+    display: flex;
+    justify-content: space-between;
+    height: 552px;
+    & .chessBoard {
+      width: 476px;
+      height: 476px;
+      display: flex;
+      & .leftRow {
+        height: 476px;
+        width: 30px;
+      }
+      & .properBoardContainer {
+        height: 476px;
+        width: 446px;
+        & .properBoard {
+          width: 446px;
+          height: 446px;
+          background-color: #FEF9F3;
+          box-shadow: 2px 2px 4px grey;
+        }
+        & .bottomRow {
+          width: 446px;
+          height: 30px;
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+    & .feedback {
+      width: 240px;
+      height: 592px;
+      background-color: #fdf9f3;
+      border-radius: 8px;
+      box-shadow: 2px 2px 4px grey;
+      padding: 20px;
+    }
+  }
+}
+
+.rank {
+  width: 30px;
+  height: 55.75px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.file {
+  width: 55.75px;
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 100;
+  position: relative;
+  top: 10px;
+  text-transform: uppercase;
+}
+
+.failBtn,
+.successBtn {
+  font-size: 18px;
+  padding: 2px;
+  width: 200px;
+  border-radius: 8px;
+  font-family: Nunito;
+  margin: auto;
+}
+.failBtn {
+  background: #82141F;
+  border: 2px solid #82141F;
+}
+
+.exitBtn {
+  background: #29395A;
+  border: 2px solid #29395A;
+  font-size: 18px;
+  padding: 2px;
+  width: 100px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.bannerAvatar {
+  position: absolute;
+  z-index: 2;
+  top: 13px;
+  left: 60px;
+}

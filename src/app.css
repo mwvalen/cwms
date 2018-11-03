@@ -1,0 +1,65 @@
+html {
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  padding-top: 90px;
+}
+a {
+  outline: 0;
+}
+
+/*slick styles!*/
+
+.slick-container {
+  margin: 0 auto;
+  width: 100%;
+  border-bottom: 5px solid #013220;
+  box-shadow: 0 4px 2px -2px grey;
+}
+
+.slick-container .slick-next,
+.slick-container .slick-prev {
+  z-index: 2;
+  width: auto;
+  height: 80px;
+}
+
+.slick-container .slick-prev {
+  left: 1%;
+  padding-right: 30px;
+}
+
+.slick-container .slick-next {
+  right: 1%;
+  padding-left: 30px;
+}
+
+.slick-container .slide img {
+  width: 100vw;
+  height: auto;
+}
+
+/** stripe styles **/
+
+.StripeElement {
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}

@@ -1,0 +1,26 @@
+.button {
+  color: white;
+  background: #11B2B3;
+  text-transform: capitalize;
+  outline: none;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  font-family: 'Nunito';
+  border: 2px solid #11B2B3;
+  border-left-color: #2BCCCD;
+  border-top-color: #2BCCCD;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: left;
+}
+
+@media screen and (min-width: 769px) {
+  .button {
+    font-size: 30px;
+    margin: auto;
+  }
+}

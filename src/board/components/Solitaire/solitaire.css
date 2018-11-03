@@ -1,0 +1,12 @@
+.solitaireContainer {
+    width: 446px;
+    height: 446px;
+    overflow: hidden;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.solitaireBoard {
+    width: 892px;
+    height: 892px;
+}

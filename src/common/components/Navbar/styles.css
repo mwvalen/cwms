@@ -1,0 +1,56 @@
+.navbar {
+  height: 90px;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+  background: #333;
+  border-bottom: 5px solid maroon;
+  box-shadow: 0 4px 2px -2px grey;
+}
+
+.navLogo {
+  height: 100%;
+  & img {
+    display: none;
+    height: 175%;
+    margin-top: 50%;
+  }
+  & h2 {
+    color: white;
+    font-weight: 300;
+  }
+}
+
+.smallLogo {
+  height: 100%;
+  & img {
+    display: none;
+    height: 100%
+  }
+}
+
+.navLink {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  min-width: 120px;
+  font-weight: 600;
+  transition: transform 0.5s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2, 1.2);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .smallLogo,
+  .navLogo {
+    & img {
+      display: block;
+    }
+    & h2 {
+      display: none;
+    }
+  }
+}

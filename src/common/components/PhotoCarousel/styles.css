@@ -1,0 +1,13 @@
+.photoCarousel {
+  width: 600px;
+  text-align: center;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 2px -2px #888;
+  & img {
+    width: 100%;
+  }
+  & :global .slick-prev:before,
+  & :global .slick-next:before {
+    color: #333;
+  }
+}

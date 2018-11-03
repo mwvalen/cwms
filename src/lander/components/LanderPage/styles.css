@@ -1,0 +1,31 @@
+.headerSm {
+  padding-top: 3rem;
+  text-align: center;
+  & > h3 {
+    font-size: 2.3rem;
+  }
+}
+
+.container {
+  width: 94%;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 75%;
+  }
+}
+@media screen and (max-width: 538px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media screen and (min-width: 769px) {
+  html {
+    font-size: 80%;
+  }
+  .container {
+    width: 84%;
+  }
+}

@@ -1,0 +1,6 @@
+.separator {
+  margin: 0 2px;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}

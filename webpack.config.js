@@ -79,12 +79,25 @@ const baseConfig = {
   ]
 };
 
+const proxy = {
+  target: 'https://chesswithmrs.com',
+  secure: false
+};
+
 const envConfigs = {
   development: {
     devServer: {
       publicPath: '/build/',
       historyApiFallback: true,
-      port: 8096
+      port: 8096,
+      proxy: {
+        '/login': { ...proxy },
+        '/api': { ...proxy },
+        '/assets': {
+          target: 'http://localhost:8096',
+          pathRewrite: { '^/assets': '/build/assets' }
+        }
+      }
     }
   },
   production: {

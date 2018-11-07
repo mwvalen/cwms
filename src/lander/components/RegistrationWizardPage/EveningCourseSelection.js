@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import React from 'react'
 import {withRouter} from 'react-router-dom'
+import {Tabs, Tab} from 'material-ui/Tabs'
 import EveningCourseTable from './EveningCourseTable'
 import {registerCourses} from 'lander/actions/registration'
 import LocationMap from 'common/components/Location/LocationMap'
@@ -15,6 +16,16 @@ const daysOfTheWeek = [
   'Saturday',
   'Sunday'
 ]
+
+const daysOfTheWeekSortOrder = {
+  'Saturday' : 0,
+  'Sunday' : 1,
+  'Monday' : 2,
+  'Tuesday' : 3,
+  'Wednesday' : 4,
+  'Thursday' : 5,
+  'Friday' : 6
+}
 
 const getCourseDay = ({classes}) => daysOfTheWeek[new Date(classes[0].startTime).getDay() - 1]
 
@@ -31,6 +42,10 @@ const CourseGrouping = ({courses, handleSignup}) => {
   )
 }
 
+const getSortedCourseKeys = (courses) => Object.keys(courses).sort(customWeekdaySort)
+
+const customWeekdaySort = (a, b) => daysOfTheWeekSortOrder[a] - daysOfTheWeekSortOrder[b]
+
 const customSortCompare = (a, b) => {
   if (a.soldOut !== b.soldOut) {
     return a.soldOut ? 1 : -1
@@ -42,12 +57,24 @@ const customSortCompare = (a, b) => {
 }
 
 class EveningCourseSelection extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selected : ''
+    }
+  }
+  handleTabChange = value => {
+    this.setState({selected: value})
+  }
   handleSignup = course => {
     this.props.registerCourses([course])
     this.props.history.push('/register/info')
   }
   render () {
-    const courseKeys = Object.keys(this.props.courses)
+    const courseKeys = getSortedCourseKeys(this.props.courses)
+    if (this.state.selected === '' && courseKeys.length > 0) {   //if no tab selected, and courses available, select first tab
+      this.setState({ selected: courseKeys[0].toLowerCase() })
+    }
     return (
       <div style={{width: '80%', margin: 'auto', paddingBottom: '40px'}}>
         <div style={{textAlign: 'center', width: '80%', margin: 'auto'}}>
@@ -63,14 +90,17 @@ class EveningCourseSelection extends React.Component {
             <a href="/contactus"> Contact us </a> if you have any questions.
           </p>
         </div>
+        <br />
         {
           courseKeys.length === 0 &&
             <div>No courses found!</div>
         }
         {
           courseKeys.length > 0 &&
-            courseKeys.map(key => {
+            <Tabs value={this.state.selected} onChange={this.handleTabChange}> &&
+            {courseKeys.map(key => {
               return (
+                <Tab label={key} value={key.toLowerCase()}>
                 <CourseGrouping
                   key={key}
                   handleSignup={this.handleSignup}
@@ -78,8 +108,10 @@ class EveningCourseSelection extends React.Component {
                     this.props.courses[key]
                       .sort(customSortCompare)
                   } />
+                  </Tab>
               )
-            })
+            })}
+            </Tabs>
         }
       </div>
     )

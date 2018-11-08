@@ -8,13 +8,13 @@ import LocationMap from 'common/components/Location/LocationMap'
 import landerStyles from './styles.css'
 
 const daysOfTheWeek = [
+  'Sunday',
   'Monday',
   'Tuesday',
   'Wednesday',
   'Thursday',
   'Friday',
-  'Saturday',
-  'Sunday'
+  'Saturday'
 ]
 
 const daysOfTheWeekSortOrder = {
@@ -27,7 +27,8 @@ const daysOfTheWeekSortOrder = {
   'Friday' : 6
 }
 
-const getCourseDay = ({classes}) => daysOfTheWeek[new Date(classes[0].startTime).getDay() - 1]
+const getCourseDay = ({classes}) =>
+  daysOfTheWeek[new Date(classes[0].startTime).getDay()]
 
 const CourseGrouping = ({courses, handleSignup}) => {
   const day = getCourseDay(courses[0])
@@ -42,7 +43,12 @@ const CourseGrouping = ({courses, handleSignup}) => {
   )
 }
 
-const getSortedCourseKeys = (courses) => Object.keys(courses).sort(customWeekdaySort)
+const getSortedCourseKeys = (courses) => {
+  if (!courses || !Object.keys(courses).length) {
+    return
+  }
+  return Object.keys(courses).sort(customWeekdaySort)
+}
 
 const customWeekdaySort = (a, b) => daysOfTheWeekSortOrder[a] - daysOfTheWeekSortOrder[b]
 
@@ -59,10 +65,24 @@ const customSortCompare = (a, b) => {
 class EveningCourseSelection extends React.Component {
   constructor(props) {
     super(props)
+    const courseKeys = getSortedCourseKeys(props.courses)
     this.state = {
-      selected : ''
+      courseKeys,
+      selected: courseKeys ? courseKeys[0].toLowerCase() : ''
     }
   }
+  componentDidUpdate(prevProps) {
+    const {courses:prevCourses} = prevProps;
+    const {courses} = this.props;
+    if (courses && Object.keys(prevCourses).length === 0) {
+      const courseKeys = getSortedCourseKeys(courses)
+      this.setState({
+        courseKeys,
+        selected: courseKeys[0].toLowerCase()
+      })
+    }
+  }
+
   handleTabChange = value => {
     this.setState({selected: value})
   }
@@ -71,10 +91,7 @@ class EveningCourseSelection extends React.Component {
     this.props.history.push('/register/info')
   }
   render () {
-    const courseKeys = getSortedCourseKeys(this.props.courses)
-    if (this.state.selected === '' && courseKeys.length > 0) {   //if no tab selected, and courses available, select first tab
-      this.setState({ selected: courseKeys[0].toLowerCase() })
-    }
+    const {courseKeys, selected} = this.state;
     return (
       <div style={{width: '80%', margin: 'auto', paddingBottom: '40px'}}>
         <div style={{textAlign: 'center', width: '80%', margin: 'auto'}}>
@@ -92,25 +109,25 @@ class EveningCourseSelection extends React.Component {
         </div>
         <br />
         {
-          courseKeys.length === 0 &&
+          courseKeys === undefined &&
             <div>No courses found!</div>
         }
         {
-          courseKeys.length > 0 &&
-            <Tabs value={this.state.selected} onChange={this.handleTabChange}> &&
-            {courseKeys.map(key => {
-              return (
-                <Tab label={key} value={key.toLowerCase()}>
-                <CourseGrouping
-                  key={key}
-                  handleSignup={this.handleSignup}
-                  courses={
-                    this.props.courses[key]
-                      .sort(customSortCompare)
-                  } />
-                  </Tab>
-              )
-            })}
+          courseKeys !== undefined &&
+            <Tabs value={selected}
+              onChange={this.handleTabChange}>
+              {courseKeys.map(key => {
+                return (
+                  <Tab key={key} label={key.slice(0, 3)} value={key.toLowerCase()}>
+                    <CourseGrouping
+                      handleSignup={this.handleSignup}
+                      courses={
+                        this.props.courses[key]
+                          .sort(customSortCompare)
+                      } />
+                    </Tab>
+                )
+              })}
             </Tabs>
         }
       </div>

@@ -10,7 +10,7 @@ export default withWidth()(props => {
   console.log('width', props.width)
   let orientation = props.width > 1 ? "horizontal" : "vertical"
   return (
-    <Stepper activeStep={props.activeStep} orientation={orientation}>
+    <Stepper activeStep={props.activeStep} orientation={orientation} >
       <Step>
         <StepLabel>Select your courses</StepLabel>
       </Step>

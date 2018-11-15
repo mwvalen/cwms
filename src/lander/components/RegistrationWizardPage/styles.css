@@ -41,8 +41,28 @@
   }
 }
 
+.campMainContent {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
 @media screen and (max-width: 768px) {
   .noCourseText {
     font-size: 14px;
+  }
+  .campMainContent {
+    width: 90vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding-right: 5vw;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .stepperWrapper > div > div {
+
   }
 }

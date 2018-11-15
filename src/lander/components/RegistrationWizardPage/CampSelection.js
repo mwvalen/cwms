@@ -74,7 +74,7 @@ class CampSelection extends React.Component {
   render () {
     return (
       <form className={styles.form} onSubmit={this.handleSubmit}>
-        <div style={{textAlign: 'center', width: '80%', margin: 'auto'}}>
+        <div className={landerStyles.campMainContent}>
           <div>
             <img src="/assets/shield.png" alt="shield" style={{width: '200px'}} />
           </div>
@@ -88,11 +88,12 @@ class CampSelection extends React.Component {
           {
             this.state.campSchool &&
               <div>
-                <p>Summer camp is to be held at: </p>
+                <p style={{fontSize: '14px'}}>Summer camp is to be held at: </p>
                 <Location {...this.state.campSchool} />
               </div>
           }
         </div>
+        <br />
         <AdditionalInfo header="Camp Refund Policy" bulletPoints={refundPolicy} />
         <AdditionalInfo header="Additional Info" bulletPoints={additionalInfo} />
         {this.state.schoolId &&

@@ -15,3 +15,17 @@
     width: 60%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .location {
+    flex-direction: column;
+    align-content: center;
+    & > .info {
+      width: 84vw;
+    }
+    & > .gMap {
+      width: 84vw;
+      padding-top: 14px;
+    }
+  }
+}

@@ -14,6 +14,7 @@ import ConfirmationPage from './ConfirmationPage'
 import RegisterHome from './RegisterHome'
 import ErrorPage from './ErrorPage'
 import styles from 'common/themes/layout.css'
+import landerStyles from './styles.css'
 
 const mapStateToProps = ({registration}) => {
   return {
@@ -41,7 +42,7 @@ class RegistrationWizard extends React.Component {
     }
     return (
       <div className={styles.container}>
-        <div style={paddingStyle}>
+        <div style={paddingStyle} className={landerStyles.stepperWrapper}>
           <RegistrationStepper
             activeStep={this.getActiveStep(this.props.location.pathname)}/>
         </div>

@@ -40,3 +40,9 @@
     min-height: 100px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .noCourseText {
+    font-size: 14px;
+  }
+}

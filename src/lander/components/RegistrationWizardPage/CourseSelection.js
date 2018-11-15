@@ -6,10 +6,11 @@ import AutoComplete from 'material-ui/AutoComplete'
 import CourseTable from './CourseTable'
 import {registerCourses, setIsCamp, flipMode} from 'lander/actions/registration'
 import styles from 'common/themes/form.css'
+import registrationStyles from './styles.css'
 
 const NoCourseMessage = props => {
   return (
-    <div>There are no courses currently scheduled for your school.<br />
+    <div className={registrationStyles.noCourseText}>There are no courses currently scheduled for your school.<br />
       <a href="/contactus">Sign up your school for Chess with Mr. S</a></div>
   )
 }

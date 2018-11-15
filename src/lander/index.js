@@ -19,6 +19,9 @@ import {loadCourses, loadCamps} from 'lander/actions/courses'
 import {loadSchools} from 'lander/actions/schools'
 import btnStyles from 'common/themes/button.css'
 
+
+
+
 const minHeightStyle = {
   minHeight: '100vh'
 }
@@ -36,7 +39,22 @@ const funWork = {
   marginRight: '10px'
 }
 
+
+const moreLinks = [
+  {  text: '',
+    icon: '',
+    path: '', }
+]
+
+
+
 class Lander extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      moreNavOpen: false
+    }
+  }
   componentDidMount () {
     this.props.loadCamps()
     this.props.loadCourses(getCurrentSeason())
@@ -49,18 +67,25 @@ class Lander extends React.Component {
   navigateToPath = path => {
     this.props.history.push(path)
   }
+  handleToggle = () => {
+    this.setState({...this.state, moreNavOpen: !state.moreNavOpen})
+  }
+  handleClose = e => {
+    this.setState({...this.state, moreNavOpen: false})
+  }
   render () {
+    const open = this.state.moreNavOpen
     return (
       <div>
         <Navbar links={[]} showBigLogo={this.isBigLogo()}>
-          <NavLinkBtn name="Homework puzzles"
-            style={{...funWork, ...navBtn}}
-            className={btnStyles.primaryBtn}
-            handleClick={this.navigateToPath.bind(this, '/login')}/>
           <NavLinkBtn name="Register"
             style={navBtn}
             className={btnStyles.primaryBtn}
             handleClick={this.navigateToPath.bind(this, '/register')}/>
+          {/*<NavLinkBtn name="Homework puzzles"
+            style={{...funWork, ...navBtn}}
+            className={btnStyles.primaryBtn}
+            handleClick={this.navigateToPath.bind(this, '/login')}/>*/}
         </Navbar>
         <div style={minHeightStyle}>
           <Switch>

@@ -12,7 +12,7 @@ const NavLogo = withRouter(props => {
   return (
     <Link className={`${className} flex items-center`} to={props.root || '/'}>
       <img src="/assets/shield.png" />
-      <h2>Chess with<br /> Mr. S</h2>
+      <h2>Chess with<br /> &nbsp;&nbsp;&nbsp; Mr. S</h2>
     </Link>
   )
 })

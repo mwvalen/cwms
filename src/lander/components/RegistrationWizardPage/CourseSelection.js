@@ -97,7 +97,7 @@ class CourseSelection extends React.Component {
     }
     return (
       <form style={{minHeight: '100vh'}} className={styles.form} onSubmit={this.handleSubmit}>
-        <div style={{textAlign: 'center', width: '80%', margin: 'auto'}}>
+        <div className={registrationStyles.schoolProgramsMainContent}>
           <div>
             <img src="/assets/shield.png" alt="shield" style={{width: '200px'}} />
           </div>

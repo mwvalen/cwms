@@ -18,6 +18,7 @@ import Signup from 'lander/components/Signup'
 import {loadCourses, loadCamps} from 'lander/actions/courses'
 import {loadSchools} from 'lander/actions/schools'
 import btnStyles from 'common/themes/button.css'
+import withWidth from 'material-ui/utils/withWidth'
 
 
 
@@ -77,15 +78,16 @@ class Lander extends React.Component {
     const open = this.state.moreNavOpen
     return (
       <div>
+
         <Navbar links={[]} showBigLogo={this.isBigLogo()}>
+        {this.props.width && this.props.width > 1 && <NavLinkBtn name="Homework puzzles"
+          style={{...funWork, ...navBtn}}
+          className={btnStyles.primaryBtn}
+          handleClick={this.navigateToPath.bind(this, '/login')}/>}
           <NavLinkBtn name="Register"
             style={navBtn}
             className={btnStyles.primaryBtn}
             handleClick={this.navigateToPath.bind(this, '/register')}/>
-          {/*<NavLinkBtn name="Homework puzzles"
-            style={{...funWork, ...navBtn}}
-            className={btnStyles.primaryBtn}
-            handleClick={this.navigateToPath.bind(this, '/login')}/>*/}
         </Navbar>
         <div style={minHeightStyle}>
           <Switch>
@@ -107,5 +109,5 @@ class Lander extends React.Component {
 }
 
 export default withRouter(
-  connect(() => ({}), {loadCourses, loadCamps, loadSchools})(Lander)
+  connect(() => ({}), {loadCourses, loadCamps, loadSchools})(withWidth()(Lander))
 )

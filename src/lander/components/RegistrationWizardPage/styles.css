@@ -47,17 +47,52 @@
   margin: auto;
 }
 
+.schoolProgramsMainContent {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.eveningRegisterMainContent {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.eveningRegisterWrapper {
+  width: 80%;
+  margin: auto;
+  padding-bottom: 40px;
+}
+
+.tabsWrapper div div:first {
+  flex-wrap: wrap;
+}
+
+.tabsWrapper div div:first button {
+    width: 100% !important;
+}
+
 @media screen and (max-width: 768px) {
   .noCourseText {
     font-size: 14px;
   }
   .campMainContent {
-    width: 90vw;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-content: center;
     padding-right: 5vw;
+  }
+  .schoolProgramsMainContent {
+    width: 100%;
+  }
+  .eveningRegisterMainContent {
+    width: 100%;
+  }
+  .eveningRegisterWrapper {
+    width: 100%;
   }
 }
 

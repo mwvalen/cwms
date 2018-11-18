@@ -92,9 +92,10 @@ class EveningCourseSelection extends React.Component {
   }
   render () {
     const {courseKeys, selected} = this.state;
+    console.log('courses', this.props.courses)
     return (
-      <div style={{width: '80%', margin: 'auto', paddingBottom: '40px'}}>
-        <div style={{textAlign: 'center', width: '80%', margin: 'auto'}}>
+      <div className={landerStyles.eveningRegisterWrapper}>
+        <div className={landerStyles.eveningRegisterMainContent}>
           <div>
             <img src="/assets/shield.png" alt="shield" style={{width: '200px'}} />
           </div>
@@ -114,21 +115,25 @@ class EveningCourseSelection extends React.Component {
         }
         {
           courseKeys !== undefined &&
+          <div className={landerStyles.tabsWrapper}>
             <Tabs value={selected}
-              onChange={this.handleTabChange}>
+              onChange={this.handleTabChange}
+              scrollable
+            scrollButtons="auto">
               {courseKeys.map(key => {
                 return (
                   <Tab key={key} label={key.slice(0, 3)} value={key.toLowerCase()}>
                     <CourseGrouping
-                      handleSignup={this.handleSignup}
-                      courses={
-                        this.props.courses[key]
-                          .sort(customSortCompare)
-                      } />
-                    </Tab>
+                    handleSignup={this.handleSignup}
+                    courses={
+                      this.props.courses[key]
+                        .sort(customSortCompare)
+                    } />
+                  </Tab>
                 )
               })}
             </Tabs>
+            </div>
         }
       </div>
     )

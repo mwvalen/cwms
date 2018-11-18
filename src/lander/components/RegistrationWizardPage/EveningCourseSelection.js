@@ -98,7 +98,6 @@ class EveningCourseSelection extends React.Component {
   render () {
     const {courseKeys, selected} = this.state;
     const {width} = this.props
-    console.log('width', width)
     return (
       <div className={landerStyles.eveningRegisterWrapper}>
         <div className={landerStyles.eveningRegisterMainContent}>
@@ -154,12 +153,14 @@ class EveningCourseSelection extends React.Component {
                   )
                 })}
               </SelectField>
-              {selected && <CourseGrouping
-              handleSignup={this.handleSignup}
-              courses={
-                  this.props.courses[selected.charAt(0).toUpperCase() + selected.slice(1)]
-                  .sort(customSortCompare)
-              } /> }
+              {selected &&
+                <CourseGrouping
+                handleSignup={this.handleSignup}
+                courses={
+                    this.props.courses[selected.charAt(0).toUpperCase() + selected.slice(1)]
+                    .sort(customSortCompare)
+                } />
+              }
               </div>
             }
           </div>

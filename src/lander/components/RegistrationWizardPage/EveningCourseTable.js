@@ -8,9 +8,11 @@ import {
   TableRowColumn
 } from 'material-ui/Table'
 import RaisedButton from 'material-ui/RaisedButton'
+import Paper from 'material-ui/Paper'
 import Currency from 'common/components/Currency'
 import TimeOfDay from 'common/components/TimeOfDay'
 import styles from './styles.css'
+import withWidth from 'material-ui/utils/withWidth'
 
 const months = [
   'Jan',
@@ -98,8 +100,11 @@ const Address = ({school}) => {
   )
 }
 
-export default props => {
+export default withWidth()(props => {
+  const {width, courses} = props
   return (
+    <div>
+    {width && width > 1 &&
     <Table className={styles.courseTable}>
        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
          <TableRow>
@@ -113,7 +118,7 @@ export default props => {
        <TableBody style={{verticalAlign: "top"}}
         deselectOnClickaway={false} displayRowCheckbox={false}>
         {
-          props.courses.map((course, idx) => {
+          courses.map((course, idx) => {
             return (
               <TableRow key={idx} selected={false} selectable={false}>
                 <TableRowColumn>
@@ -164,5 +169,56 @@ export default props => {
         }
        </TableBody>
      </Table>
+   }
+     {width && width <= 1 &&
+       <div className={styles.mobileCoursesWrapper}>
+        <span style={{'font-size': '14px'}}>{courses.length} {courses.length === 1 ? "class" : "classes"} found.</span>
+        {courses.map((course, idx) => {
+          return (
+            <Paper zDepth={2} rounded={false} className={styles.coursePaper}>
+              <div className={styles.coursePaperContentWrapper}>
+              <br />
+              <div>{course.school.name}</div>
+              {
+                <Address school={course.school} />
+              }
+              <br />
+              <div className={styles.coursePaperRow}>
+                <div className={styles.coursePaperRowHeader}><strong>Teacher: </strong></div>
+                <div className={styles.coursePaperRowContent}>{`${course.teacher.firstName} ${course.teacher.lastName}`}</div>
+              </div>
+              <div className={styles.coursePaperRow}>
+                <div className={styles.coursePaperRowHeader}><strong>Course Level: </strong></div>
+                <div className={styles.coursePaperRowContent}>{course.description}</div>
+              </div>
+              <div className={styles.coursePaperRow}>
+                <div className={styles.coursePaperRowHeader}><strong>Time: </strong></div>
+                &nbsp;&nbsp;&nbsp;<ClassTime {...course.classes[0]} />
+              </div>
+              <div className={styles.coursePaperRow}>
+                <div className={styles.coursePaperRowHeader}><strong>Dates: </strong></div>
+                <div className={styles.coursePaperRowContent}>{getClassDate(course.classes[0])} - {getClassDate(course.classes.slice(-1)[0])}</div>
+              </div>
+              <div className={styles.coursePaperRow}>
+                <div className={styles.coursePaperRowHeader}><strong>Price: </strong></div>
+                &nbsp;&nbsp;&nbsp;<Currency cents={course.price * 100} />
+              </div>
+              <div style={{'margin-top': '12px'}}>
+                {
+                  course.soldOut ? <div>
+                    <strong style={{textTransform: "uppercase", color: "red"}}>
+                      Sold out
+                    </strong>
+                  </div> : <SignupButton handleOnClick={() => props.handleSignup(course)} />
+                }
+              </div>
+              <br />
+              </div>
+            </Paper>
+          )
+        })}
+       </div>
+     }
+     </div>
   )
-}
+})

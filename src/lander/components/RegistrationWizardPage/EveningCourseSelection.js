@@ -71,7 +71,8 @@ class EveningCourseSelection extends React.Component {
     const courseKeys = getSortedCourseKeys(props.courses)
     this.state = {
       courseKeys,
-      selected: courseKeys ? courseKeys[0].toLowerCase() : ''
+      selected: courseKeys ? courseKeys[0].toLowerCase() : '',
+      mobileUserHasSelected: false
     }
   }
   componentDidUpdate(prevProps) {
@@ -89,15 +90,16 @@ class EveningCourseSelection extends React.Component {
     this.setState({selected: value})
   }
   handleSelectChange = (e, i, value) => {
-    this.setState({selected: value})
+    this.setState({selected: value, mobileUserHasSelected: true})
   }
   handleSignup = course => {
     this.props.registerCourses([course])
     this.props.history.push('/register/info')
   }
   render () {
-    const {courseKeys, selected} = this.state;
+    const {courseKeys, selected, mobileUserHasSelected} = this.state;
     const {width} = this.props
+    let mobileSelection = mobileUserHasSelected ? selected : ''
     return (
       <div className={landerStyles.eveningRegisterWrapper}>
         <div className={landerStyles.eveningRegisterMainContent}>
@@ -141,7 +143,7 @@ class EveningCourseSelection extends React.Component {
             {width && width <= 1 &&
               <div>
               <SelectField
-                value={selected}
+                value={mobileSelection}
                 onChange={this.handleSelectChange}
                 floatingLabelText="Select Day of the Week"
                 fullWidth
@@ -153,11 +155,11 @@ class EveningCourseSelection extends React.Component {
                   )
                 })}
               </SelectField>
-              {selected &&
+              {mobileSelection && mobileSelection.length > 1 &&
                 <CourseGrouping
                 handleSignup={this.handleSignup}
                 courses={
-                    this.props.courses[selected.charAt(0).toUpperCase() + selected.slice(1)]
+                    this.props.courses[mobileSelection.charAt(0).toUpperCase() + mobileSelection.slice(1)]
                     .sort(customSortCompare)
                 } />
               }

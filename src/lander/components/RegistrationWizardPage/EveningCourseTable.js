@@ -200,6 +200,10 @@ export default withWidth()(props => {
                 <div className={styles.coursePaperRowContent}>{getClassDate(course.classes[0])} - {getClassDate(course.classes.slice(-1)[0])}</div>
               </div>
               <div className={styles.coursePaperRow}>
+                <div className={styles.coursePaperRowHeader}><strong># of Classes: </strong></div>
+                <div className={styles.coursePaperRowContent}>{course.classes.length}</div>
+              </div>
+              <div className={styles.coursePaperRow}>
                 <div className={styles.coursePaperRowHeader}><strong>Price: </strong></div>
                 &nbsp;&nbsp;&nbsp;<Currency cents={course.price * 100} />
               </div>

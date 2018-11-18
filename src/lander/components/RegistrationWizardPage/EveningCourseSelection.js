@@ -6,6 +6,9 @@ import EveningCourseTable from './EveningCourseTable'
 import {registerCourses} from 'lander/actions/registration'
 import LocationMap from 'common/components/Location/LocationMap'
 import landerStyles from './styles.css'
+import withWidth from 'material-ui/utils/withWidth'
+import SelectField from 'material-ui/SelectField'
+import MenuItem from 'material-ui/MenuItem'
 
 const daysOfTheWeek = [
   'Sunday',
@@ -82,8 +85,10 @@ class EveningCourseSelection extends React.Component {
       })
     }
   }
-
   handleTabChange = value => {
+    this.setState({selected: value})
+  }
+  handleSelectChange = (e, i, value) => {
     this.setState({selected: value})
   }
   handleSignup = course => {
@@ -92,7 +97,8 @@ class EveningCourseSelection extends React.Component {
   }
   render () {
     const {courseKeys, selected} = this.state;
-    console.log('courses', this.props.courses)
+    const {width} = this.props
+    console.log('width', width)
     return (
       <div className={landerStyles.eveningRegisterWrapper}>
         <div className={landerStyles.eveningRegisterMainContent}>
@@ -116,24 +122,47 @@ class EveningCourseSelection extends React.Component {
         {
           courseKeys !== undefined &&
           <div className={landerStyles.tabsWrapper}>
+            {width && width > 1 &&
             <Tabs value={selected}
-              onChange={this.handleTabChange}
-              scrollable
-            scrollButtons="auto">
+              onChange={this.handleTabChange}>
               {courseKeys.map(key => {
                 return (
                   <Tab key={key} label={key.slice(0, 3)} value={key.toLowerCase()}>
-                    <CourseGrouping
-                    handleSignup={this.handleSignup}
-                    courses={
+                  <CourseGrouping
+                  handleSignup={this.handleSignup}
+                  courses={
                       this.props.courses[key]
-                        .sort(customSortCompare)
-                    } />
+                      .sort(customSortCompare)
+                  } />
                   </Tab>
                 )
               })}
             </Tabs>
-            </div>
+            }
+            {width && width <= 1 &&
+              <div>
+              <SelectField
+                value={selected}
+                onChange={this.handleSelectChange}
+                floatingLabelText="Select Day of the Week"
+                fullWidth
+                style={{'border': '#000000'}}
+              >
+                {courseKeys.map(key => {
+                  return (
+                    <MenuItem key={key} primaryText={key} value={key.toLowerCase()} />
+                  )
+                })}
+              </SelectField>
+              {selected && <CourseGrouping
+              handleSignup={this.handleSignup}
+              courses={
+                  this.props.courses[selected.charAt(0).toUpperCase() + selected.slice(1)]
+                  .sort(customSortCompare)
+              } /> }
+              </div>
+            }
+          </div>
         }
       </div>
     )
@@ -157,5 +186,5 @@ const mapStateToProps = ({courses={}}) => {
 }
 
 export default withRouter(
-  connect(mapStateToProps, {registerCourses})(EveningCourseSelection)
+  connect(mapStateToProps, {registerCourses})(withWidth()(EveningCourseSelection))
 )

@@ -7,7 +7,6 @@ import {
 import withWidth from 'material-ui/utils/withWidth'
 
 export default withWidth()(props => {
-  console.log('width', props.width)
   let orientation = props.width > 1 ? "horizontal" : "vertical"
   return (
     <Stepper activeStep={props.activeStep} orientation={orientation} >

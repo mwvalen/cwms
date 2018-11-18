@@ -172,10 +172,10 @@ export default withWidth()(props => {
    }
      {width && width <= 1 &&
        <div className={styles.mobileCoursesWrapper}>
-        <span style={{'font-size': '14px'}}>{courses.length} {courses.length === 1 ? "class" : "classes"} found.</span>
+        <span style={{'fontSize': '14px'}}>{courses.length} {courses.length === 1 ? "class" : "classes"} found.</span>
         {courses.map((course, idx) => {
           return (
-            <Paper zDepth={2} rounded={false} className={styles.coursePaper}>
+            <Paper key={idx} zDepth={2} rounded={false} className={styles.coursePaper}>
               <div className={styles.coursePaperContentWrapper}>
               <br />
               <div>{course.school.name}</div>
@@ -203,7 +203,7 @@ export default withWidth()(props => {
                 <div className={styles.coursePaperRowHeader}><strong>Price: </strong></div>
                 &nbsp;&nbsp;&nbsp;<Currency cents={course.price * 100} />
               </div>
-              <div style={{'margin-top': '12px'}}>
+              <div style={{'marginTop': '12px'}}>
                 {
                   course.soldOut ? <div>
                     <strong style={{textTransform: "uppercase", color: "red"}}>

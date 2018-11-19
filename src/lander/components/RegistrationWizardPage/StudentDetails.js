@@ -9,6 +9,7 @@ import MenuItem from 'material-ui/MenuItem'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
+import withWidth from 'material-ui/utils/withWidth'
 import GoBack from 'common/components/GoBack'
 import {registerStudent} from 'lander/actions/registration'
 import pattern from 'common/util/pattern'
@@ -234,10 +235,12 @@ class StudentDetails extends React.Component {
     const hideAutoFillColorStyle = {
         WebkitBoxShadow: '0 0 0 1000px white inset'
     }
+    const { width } = this.props
     const hintStyle = {zIndex: '1', pointerEvents: 'none'}
-    const indentStyle = {marginLeft: '200px'}
+    const indentStyle = width <= 1 ? {'marginLeft': '10px'} : { 'marginLeft': '200px'}
     const inputStyle = {width: '400px'}
     const menuItemStyle = {fontFamily: '16px', textTransform: 'capitalize'}
+    const dropdownDivStyle = width <= 1 ?  {marginLeft: '10px', height: '72px', display: 'flex', alignItems: 'flex-end'} : {marginLeft: '200px', height: '72px', display: 'flex', alignItems: 'flex-end'}
     const separator = {borderTop: '1px solid #e6e6e6'}
     const gravityStyle = {marginBottom: '-20px'}
     return (
@@ -281,7 +284,7 @@ class StudentDetails extends React.Component {
               maxDate={this.threeYearsAgo}
               />
           </div>
-          <div style={{marginLeft: '200px', height: '72px', display: 'flex', alignItems: 'flex-end'}}>
+          <div style={dropdownDivStyle}>
             <DropDownMenu style={{width: '400px', right: '24px'}}
               labelStyle={
                 this.state.student.level
@@ -397,5 +400,5 @@ const mapStateToProps = ({registration, schools}) => {
   }
 }
 export default withRouter(
-  connect(mapStateToProps, {registerStudent})(StudentDetails)
+  connect(mapStateToProps, {registerStudent})(withWidth()(StudentDetails))
 )

@@ -3,6 +3,7 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import RaisedButton from 'material-ui/RaisedButton'
 import AutoComplete from 'material-ui/AutoComplete'
+import withWidth from 'material-ui/utils/withWidth'
 import CourseTable from './CourseTable'
 import {registerCourses, setIsCamp, flipMode} from 'lander/actions/registration'
 import styles from 'common/themes/form.css'
@@ -95,6 +96,7 @@ class CourseSelection extends React.Component {
       desktop: true,
       disableAutoFocus: true,
     }
+    const { width } = this.props
     return (
       <form style={{minHeight: '100vh'}} className={styles.form} onSubmit={this.handleSubmit}>
         <div className={registrationStyles.schoolProgramsMainContent}>
@@ -110,7 +112,7 @@ class CourseSelection extends React.Component {
             <a href="/contactus"> Contact us </a> if you have any questions.
           </p>
         </div>
-        <section style={{width: '600px'}}>
+        <section style={width <= 1 ? {width: '100%', overflow: 'hidden'} : {width: '600px'}}>
           <AutoComplete
             hintText="Enter school name"
             floatingLabelText="Find your school"
@@ -162,5 +164,5 @@ const mapStateToProps = ({registration, schools, courses}) => {
   }
 }
 export default withRouter(
-  connect(mapStateToProps, {registerCourses, setIsCamp, flipMode})(CourseSelection)
+  connect(mapStateToProps, {registerCourses, setIsCamp, flipMode})(withWidth()(CourseSelection))
 )

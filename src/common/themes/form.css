@@ -23,5 +23,9 @@
 @media screen and (max-width: 768px) {
   .form {
     width: 94%;
+    & > section > div {
+      overflow: hidden;
+      width: 100%;
+    }
   }
 }

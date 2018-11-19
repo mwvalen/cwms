@@ -3,6 +3,7 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import RaisedButton from 'material-ui/RaisedButton'
 import AutoComplete from 'material-ui/AutoComplete'
+import withWidth from 'material-ui/utils/withWidth'
 import Currency from 'common/components/Currency'
 import Location from 'common/components/Location'
 import CourseTable from './CourseTable'
@@ -72,6 +73,7 @@ class CampSelection extends React.Component {
     })
   }
   render () {
+    const {width} = this.props
     return (
       <form className={styles.form} onSubmit={this.handleSubmit}>
         <div className={landerStyles.campMainContent}>
@@ -101,6 +103,8 @@ class CampSelection extends React.Component {
             <h1 style={{fontWeight: 'bold', fontSize: '2em', border: 'none'}}>
               Available Summer camp packages
             </h1>
+            {width && width <= 1 && this.state.coursesForSchool.length > 0 &&
+               <p style={{'fontSize': '12px'}}> {this.state.coursesForSchool.length} {this.state.coursesForSchool.length === 1 ? 'package' : 'packages'} available </p>}
             {
               this.state.coursesForSchool.length > 0
                 ? <CourseTable selectedRows={this.state.selectedRows}
@@ -136,5 +140,5 @@ const mapStateToProps = ({registration, schools, camps}) => {
   }
 }
 export default withRouter(
-  connect(mapStateToProps, {registerCourses, setIsCamp, flipMode})(CampSelection)
+  connect(mapStateToProps, {registerCourses, setIsCamp, flipMode})(withWidth()(CampSelection))
 )

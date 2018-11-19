@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import RaisedButton from 'material-ui/RaisedButton'
+import withWidth from 'material-ui/utils/withWidth'
 import styles from './styles.css'
 
 const links = [{
@@ -50,23 +51,23 @@ const RegisterLink = ({
   </div>
 )
 
-export default ({history}) => (
+export default withWidth()((props) => (
   <div style={{
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '60px 0'
+    padding: props.width > 1 ? '60px 0' : '0px 0'
   }}>
     {
       links.map(({name, desc, url, svg, iconStyle}) => (
         <RegisterLink name={name}
           desc={desc}
-          handleOnClick={() => history.push(url)}
+          handleOnClick={() => props.history.push(url)}
           iconStyle={iconStyle}>
           <img src={`assets/${svg}.svg`} alt={svg} />
         </RegisterLink>
       ))
     }
   </div>
-)
+))

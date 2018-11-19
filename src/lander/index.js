@@ -78,9 +78,9 @@ class Lander extends React.Component {
     const open = this.state.moreNavOpen
     return (
       <div>
-
         <Navbar links={[]} showBigLogo={this.isBigLogo()}>
-        {this.props.width && this.props.width > 1 && <NavLinkBtn name="Homework puzzles"
+        {this.props.width && this.props.width > 1 &&
+          <NavLinkBtn name="Homework puzzles"
           style={{...funWork, ...navBtn}}
           className={btnStyles.primaryBtn}
           handleClick={this.navigateToPath.bind(this, '/login')}/>}

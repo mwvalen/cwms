@@ -20,7 +20,7 @@ const NavLogo = withRouter(props => {
 export default props => {
   return (
     <nav className={`${styles.navbar} flex`}>
-      <div style={{height: "90px"}} className={`${layout.container} flex justify-between`}>
+      <div style={{height: "90px"}} className={`${layout.container} ${styles.navWrapper} flex justify-between`}>
         <NavLogo {...props}/>
         <div style={{height: '100%'}} className={`flex justify-between items-center`}>
             {

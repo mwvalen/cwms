@@ -184,27 +184,27 @@ export default withWidth()(props => {
               }
               <br />
               <div className={styles.coursePaperRow}>
-                <div className={styles.coursePaperRowHeader}><strong>Teacher: </strong></div>
+                <div className={styles.coursePaperRowHeader}>Teacher: </div>
                 <div className={styles.coursePaperRowContent}>{`${course.teacher.firstName} ${course.teacher.lastName}`}</div>
               </div>
               <div className={styles.coursePaperRow}>
-                <div className={styles.coursePaperRowHeader}><strong>Course Level: </strong></div>
+                <div className={styles.coursePaperRowHeader}>Course Level: </div>
                 <div className={styles.coursePaperRowContent}>{course.description}</div>
               </div>
               <div className={styles.coursePaperRow}>
-                <div className={styles.coursePaperRowHeader}><strong>Time: </strong></div>
+                <div className={styles.coursePaperRowHeader}>Time: </div>
                 &nbsp;&nbsp;&nbsp;<ClassTime {...course.classes[0]} />
               </div>
               <div className={styles.coursePaperRow}>
-                <div className={styles.coursePaperRowHeader}><strong>Dates: </strong></div>
+                <div className={styles.coursePaperRowHeader}>Dates: </div>
                 <div className={styles.coursePaperRowContent}>{getClassDate(course.classes[0])} - {getClassDate(course.classes.slice(-1)[0])}</div>
               </div>
               <div className={styles.coursePaperRow}>
-                <div className={styles.coursePaperRowHeader}><strong># of Classes: </strong></div>
+                <div className={styles.coursePaperRowHeader}># of Classes: </div>
                 <div className={styles.coursePaperRowContent}>{course.classes.length}</div>
               </div>
               <div className={styles.coursePaperRow}>
-                <div className={styles.coursePaperRowHeader}><strong>Price: </strong></div>
+                <div className={styles.coursePaperRowHeader}>Price: </div>
                 &nbsp;&nbsp;&nbsp;<Currency cents={course.price * 100} />
               </div>
               <div style={{'marginTop': '12px'}}>

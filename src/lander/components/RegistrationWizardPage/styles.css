@@ -119,12 +119,15 @@
 .coursePaperRow {
    display: flex;
    flex-direction: row;
+   align-items: center;
    width: 100%;
 }
 
 .coursePaperRowHeader {
   width: 38%;
   text-align: right;
+  font-weight: 700;
+  font-size: 12px;
 }
 .coursePaperRowContent {
   width: 62%;

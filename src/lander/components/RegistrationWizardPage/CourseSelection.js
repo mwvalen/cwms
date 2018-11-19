@@ -116,6 +116,7 @@ class CourseSelection extends React.Component {
           <AutoComplete
             hintText="Enter school name"
             floatingLabelText="Find your school"
+            floatingLabelStyle={{'fontWeight':'600', 'color':'#777777'}}
             filter={schoolFilter}
             dataSource={this.props.schools.map(({name}) => name)}
             menuProps={menuProps}

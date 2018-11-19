@@ -166,7 +166,7 @@ export default withWidth()(props => {
                       <Clock />&nbsp;&nbsp;&nbsp;<ClassTime {...course.classes[0]} />
                     </div>
                     <div><DateRange />&nbsp;&nbsp;&nbsp;
-                      {getClassDate(course.classes[0])} - {getClassDate(course.classes.slice(-1)[0])}</div>
+                      <div>{getClassDate(course.classes[0])} - {getClassDate(course.classes.slice(-1)[0])}. <br /> {course.classes.length} classes total.</div></div>
                     <div>
                       <CreditCard />&nbsp;&nbsp;&nbsp;
                       { getPriceColumn(course) }

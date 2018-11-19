@@ -146,6 +146,7 @@ class EveningCourseSelection extends React.Component {
                 value={mobileSelection}
                 onChange={this.handleSelectChange}
                 floatingLabelText="Select Day of the Week"
+                floatingLabelStyle={{'fontWeight':'600', 'color':'#777777'}}
                 fullWidth
                 style={{'border': '#000000'}}
               >

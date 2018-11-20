@@ -95,6 +95,12 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .courseTable {
+    width: auto !important;
+  }
+}
+
 .mobileCoursesWrapper {
   display: flex;
   flex-direction: column;

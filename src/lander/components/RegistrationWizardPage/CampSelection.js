@@ -104,7 +104,8 @@ class CampSelection extends React.Component {
               Available Summer camp packages
             </h1>
             {width && width <= 1 && this.state.coursesForSchool.length > 0 &&
-               <p style={{'fontSize': '12px'}}> {this.state.coursesForSchool.length} {this.state.coursesForSchool.length === 1 ? 'package' : 'packages'} available </p>}
+              <div> <p style={{'fontSize': '12px'}}> {this.state.coursesForSchool.length} {this.state.coursesForSchool.length === 1 ? 'package' : 'packages'} available. </p>
+            <p style={{'fontSize': '12px'}}> Select the checkbox to add a package</p></div> }
             {
               this.state.coursesForSchool.length > 0
                 ? <CourseTable selectedRows={this.state.selectedRows}

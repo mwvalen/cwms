@@ -41,7 +41,6 @@ const CourseGrouping = ({courses, handleSignup}) => {
       <div style={{marginBottom: '20px'}}>
         <EveningCourseTable courses={courses} handleSignup={handleSignup} />
       </div>
-      <hr />
     </div>
   )
 }

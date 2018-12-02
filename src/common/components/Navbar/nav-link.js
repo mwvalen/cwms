@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind'
 import React from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
+import {Link} from 'react-static'
 import styles from './styles.css'
 
 const cx = classNames.bind(styles)
@@ -24,7 +25,7 @@ export const NavLinkBtn = withRouter(props => {
     navLink: true
   })
   return (
-    <div style={props.style || {}} 
+    <div style={props.style || {}}
       className={`flex items-center justify-center ${className} ${props.className || ''}`}
       onClick={props.handleClick}>
       {props.name}

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-static'
 import {NavLink} from './nav-link'
 import Separator from '../Separator'
 import layout from 'common/themes/layout.css'

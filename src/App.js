@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect, Provider} from 'react-redux'
-import {Route, BrowserRouter as Router} from 'react-router-dom'
+import { Router, Route } from 'react-static'
 import Admin from 'admin'
 import Lander from 'lander'
 import School from 'school/School'

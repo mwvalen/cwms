@@ -1,7 +1,6 @@
 import {connect} from 'react-redux'
 import React from 'react'
-import {Switch, Route, Redirect} from 'react-router'
-import {withRouter} from 'react-router-dom'
+import {Switch, Route, Redirect, withRouter} from 'react-static'
 import {getCurrentSeason} from 'common/util/season'
 import Navbar from 'common/components/Navbar'
 import Footer from 'common/components/Footer'

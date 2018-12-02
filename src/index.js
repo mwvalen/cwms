@@ -13,6 +13,8 @@ import 'basscss/css/basscss.min.css'
 import 'sanitize.css'
 import './app.css'
 
+export default App
+
 const muiTheme = getMuiTheme({
   fontFamily: 'Nunito, sans-serif',
   palette: {
@@ -22,12 +24,14 @@ const muiTheme = getMuiTheme({
   }
 })
 
+
+
 injectTapEventPlugin()
 store.dispatch(checkSession())
 
 ReactDOM.render(
   <MuiThemeProvider muiTheme={muiTheme}>
     <App store={store}/>
-  </MuiThemeProvider>,
+    </MuiThemeProvider>,
   document.getElementById('root')
 )

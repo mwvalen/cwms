@@ -1,7 +1,6 @@
 import {connect} from 'react-redux'
 import React from 'react'
-import {Redirect} from 'react-router'
-import {Switch, withRouter} from 'react-router-dom'
+import {Switch, withRouter, Redirect} from 'react-static'
 import Route from 'common/components/ScrollToTopRoute'
 import RegistrationStepper from './RegistrationStepper'
 import EveningCourseSelection from './EveningCourseSelection'

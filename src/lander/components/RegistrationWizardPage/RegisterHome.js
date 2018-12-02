@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-static'
 import RaisedButton from 'material-ui/RaisedButton'
 import styles from './styles.css'
 
